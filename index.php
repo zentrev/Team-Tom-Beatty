@@ -9,7 +9,13 @@
 <body>
     <?php
         include "dbConfig.php";
-        include "CMS.php";
+        require_once "CMS.php"; 
+        $CMS = new simpleCMS();      
+        $CMS->Connect("home", $mysqli); // to route
+        //if admin
+        //Display_admin();
+        //else
+        $CMS->Display_public();
     ?>
 
 </body>
