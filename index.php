@@ -10,12 +10,23 @@
     <?php
         include "dbConfig.php";
         require_once "CMS.php"; 
+
+        $page = "home";
+
         $CMS = new simpleCMS();      
-        $CMS->Connect("home", $mysqli); // to route
         //if admin
-        //Display_admin();
+        $WriteType = filter_input(INPUT_GET, "write_type",FILTER_SANITIZE_STRING);
+        if($WriteType != null)
+        {
+            $InsertName = filter_input(INPUT_GET, "insert_name",FILTER_SANITIZE_STRING);
+            $Content = filter_input(INPUT_GET, "content",FILTER_SANITIZE_STRING);
+            $order = filter_input(INPUT_GET, "order",FILTER_SANITIZE_STRING);
+
+            $CMS->Write($page, $WriteType, $InsertName, $Content, $order);
+        }
+        $CMS->Display_admin();
         //else
-        $CMS->Display_public();
+        $CMS->Display_public($page, $mysqli);
     ?>
 
 </body>

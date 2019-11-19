@@ -5,37 +5,20 @@
         var $insertData;
 
         // Public Page
-        public function Display_public() {
-            
-        }
-    
-        // Admin page
-        public function Display_admin() {
-        
-        }
-
-        // Sava info to Database
-        public function Write() {
-        
-        }
-    
-        // Get Page info
-        public function Connect($page, $mysqli) {
+        public function Display_public($page, $mysqli) {
             // Style
             $query = "SELECT * FROM layout WHERE is_active = 1";
             $result = $mysqli->query($query);
             $num_results = $result->num_rows;
             if($num_results > 0)
             {
-                while($row = $result->fetch_assoc())
-                {
-                    extract($row);
-                    echo "<link href='style_sheets/".$style_name.".css' rel='stylesheet'>";
-                }
+                $row = $result->fetch_assoc();
+                extract($row);
+                echo "<link href='style_sheets/".$style_name.".css' rel='stylesheet'>";
             }
 
-            // // Nav Bar
-            // $query = "SELECT * FROM routes ORDER BY category";
+            // Nav Bar
+            // $query = "SELECT * FROM categories ORDER BY category_order";
             // $result = $mysqli->query($query);
             // $num_results = $result->num_rows;
             // if($num_results > 0)
@@ -59,6 +42,37 @@
                     include "inserts/".$insert_name.".php";
                 }
             }
+        }
+    
+        // Admin page
+        public function Display_admin() {
+            echo file_get_contents("adminBar.php");
+        }
+
+        // Sava info to Database
+        public function Write($page, $WriteType, $InsertName, $Content, $order) {
+            
+            $query = "Update * FROM content SET order == order+1 WHERE page_name = '".$page."' AND order >= ".$order.";
+            $result = $mysqli->query($query);
+            $num_results = $result->num_rows;
+            if($num_results > 0)
+            {
+                while($row = $result->fetch_assoc())
+                {
+                    extract($row);
+                    include "inserts/".$insert_name.".php";
+                }
+            }
+
+
+            if($WriteType == "insert")
+            $sql = "INSERT INTO 'content' (page_name, insert_name, content, order)
+            VALUES ('".$page."', '".$insert_name."', '".$Content."', '".$order."')";
+        }
+    
+        // Get Page info
+        public function Connect($page, $mysqli) {
+            
         }
     
         // Build Database if none exist

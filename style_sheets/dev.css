@@ -1,0 +1,15 @@
+body{
+    margin: auto;
+}
+div
+{
+    border: 1px solid black;
+}
+
+#adminBar{
+    position: fixed;
+    background-color: blueviolet;
+    width: 70vw;
+    margin-left: 15vw;
+    height: 40px;
+}
