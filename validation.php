@@ -4,7 +4,10 @@ $_POST["password"];
 
 include "dbConfig.php";
 
-$query = "SELECT * FROM users WHERE 'name' like $_POST["username"] WHERE 'password' like $_POST["password"]";
+$filteredUser=filter_var($_POST["username"], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+$filteredPass=filter_var($_POST["password"], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+
+$query = "SELECT * FROM users WHERE 'name' like $filteredUser WHERE 'password' like $filteredPass";
 $sqlResult = $mysqli->query( $query );
 $rows = array();
 while($r = mysqli_fetch_assoc($sqlResult))
@@ -12,8 +15,10 @@ while($r = mysqli_fetch_assoc($sqlResult))
     $rows[] = $r;
 }
 if($rows != null) {
+
+    echo "session set";
     session_start();
-    $_SESSION["username"] = $_POST["username"];
-    $_SESSION["password"] = $_POST["password"];
+    $_SESSION["username"] = $filteredUser;
+    $_SESSION["password"] = $filteredPass;
 }
 ?>
