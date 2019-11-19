@@ -10,7 +10,6 @@
     <form action="validation.php" method="post">
     Username:<br>
     <input type="text" name="username">
-    <form action="index.php">
     <br>
     Password:<br>
     <input type="text" name="password">
