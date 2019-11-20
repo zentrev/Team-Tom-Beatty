@@ -49,25 +49,18 @@
             echo file_get_contents("adminBar.php");
         }
 
-        // Sava info to Database
-        public function Write($page, $WriteType, $InsertName, $Content, $order) {
-            
-            $query = "Update * FROM content SET order == order+1 WHERE page_name = '".$page."' AND order >= ".$order.";
-            $result = $mysqli->query($query);
-            $num_results = $result->num_rows;
-            if($num_results > 0)
-            {
-                while($row = $result->fetch_assoc())
-                {
-                    extract($row);
-                    include "inserts/".$insert_name.".php";
-                }
-            }
+        // Sava info to Database : test -> ?write_type=insert&insert_name=textInsert&content=writeTest&order=2
+        public function Write($mysqli, $page, $WriteType, $InsertName, $Content, $Order) {
+            echo $page." : ".$WriteType." : ".$InsertName." : ".$Content." : ".$Order;
 
+            $query = "UPDATE `content` SET `order`=`order`+1 WHERE `order` > $Order";
+            $mysqli->query($query);
 
             if($WriteType == "insert")
-            $sql = "INSERT INTO 'content' (page_name, insert_name, content, order)
-            VALUES ('".$page."', '".$insert_name."', '".$Content."', '".$order."')";
+            $query = "INSERT INTO `content`( `page_name`, `insert_name`, `content`, `order`)
+            VALUES ('".$page."', '".$InsertName."', '".$Content."', '".$Order."')";
+            $mysqli->query($query);
+
         }
     
         // Get Page info

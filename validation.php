@@ -20,5 +20,6 @@ if($rows != null) {
     session_start();
     $_SESSION["username"] = $filteredUser;
     $_SESSION["password"] = $filteredPass;
+    $_SESSION["isAdmin"] = $is_admin;
 }
 ?>

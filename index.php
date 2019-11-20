@@ -14,18 +14,25 @@
         $page = "home";
 
         $CMS = new simpleCMS();      
-        //if admin
-        $WriteType = filter_input(INPUT_GET, "write_type",FILTER_SANITIZE_STRING);
-        if($WriteType != null)
+        if(true)
         {
-            $InsertName = filter_input(INPUT_GET, "insert_name",FILTER_SANITIZE_STRING);
-            $Content = filter_input(INPUT_GET, "content",FILTER_SANITIZE_STRING);
-            $order = filter_input(INPUT_GET, "order",FILTER_SANITIZE_STRING);
+            $WriteType = filter_input(INPUT_GET, "write_type",FILTER_SANITIZE_STRING);
+            if($WriteType != null)
+            {
+                $InsertName = filter_input(INPUT_GET, "insert_name",FILTER_SANITIZE_STRING);
+                $Content = filter_input(INPUT_GET, "content",FILTER_SANITIZE_STRING);
+                $order = filter_input(INPUT_GET, "order",FILTER_SANITIZE_STRING);
 
-            $CMS->Write($page, $WriteType, $InsertName, $Content, $order);
+                $CMS->Write($mysqli, $page, $WriteType, $InsertName, $Content, $order);
+            }
+            $CMS->Display_admin();
         }
+<<<<<<< HEAD
         $CMS->Display_admin();
+        $addingPage = $page;
         //else
+=======
+>>>>>>> 6e3ceb06a76210226648c36ef072f465a5a97eac
         $CMS->Display_public($page, $mysqli);
     ?>
 

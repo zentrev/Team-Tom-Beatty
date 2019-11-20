@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    $addingPage = filter_input(INPUT_GET, "page",FILTER_SANITIZE_STRING);
+    $addingPage = filter_input(INPUT_GET, "page",FILTER_SANITIZE_STRING); 
 
     
     ?>
