@@ -1,9 +1,12 @@
 <?php
     $addingPage;
-    echo $addingPage;
-?>
-<nav id='adminBar'>
-    <ul>
-        <button >Add</button>
-    </ul>
-</nav>
+    
+    $url="localhost/team-tom-beatty/addInsert.php/?";
+    echo $url;
+    ?>
+
+    <nav id='adminBar'>
+        <ul>
+            <a href="addInsert.php/?page=<?php echo $addingPage; ?>" >Add</a>
+        </ul>
+    </nav>

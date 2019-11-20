@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+
         include "dbConfig.php";
         require_once "CMS.php"; 
 
@@ -27,13 +28,12 @@
             }
             $CMS->Display_admin();
         }
-<<<<<<< HEAD
         $CMS->Display_admin();
         $addingPage = $page;
         //else
-=======
->>>>>>> 6e3ceb06a76210226648c36ef072f465a5a97eac
+            
         $CMS->Display_public($page, $mysqli);
+
     ?>
 
 </body>
