@@ -14,8 +14,8 @@
 
         $page = "home";
 
-        $CMS = new simpleCMS();      
-        if(true)
+        $CMS = new simpleCMS();
+        if(session_status() )
         {
             $WriteType = filter_input(INPUT_GET, "write_type",FILTER_SANITIZE_STRING);
             if($WriteType != null)
@@ -28,7 +28,7 @@
             }
             $CMS->Display_admin($page);
             $CMS->Display_public($page, $mysqli);
-        }
+    }
         else
         {
             $CMS->Display_public($page, $mysqli);
