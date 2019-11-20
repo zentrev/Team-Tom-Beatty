@@ -22,7 +22,7 @@
             $Content = filter_input(INPUT_GET, "content",FILTER_SANITIZE_STRING);
             $order = filter_input(INPUT_GET, "order",FILTER_SANITIZE_STRING);
 
-            $CMS->Write($page, $WriteType, $InsertName, $Content, $order);
+            $CMS->Write($mysqli, $page, $WriteType, $InsertName, $Content, $order);
         }
         $CMS->Display_admin();
         //else
