@@ -17,8 +17,8 @@
         <form method="post">
             <input type="text" name="content" id="content" placeholder="Content"/>
             <select name="InsertKind">
-                <option value="Image">Image</option>
-                <option value="Text">Text</option>
+                <option value="imageInsert">Image</option>
+                <option value="textInsert">Text</option>
             </select>
             <input type="submit" value="Submit"/>
         </form>

@@ -26,13 +26,14 @@
 
                 $CMS->Write($mysqli, $page, $WriteType, $InsertName, $Content, $order);
             }
-            $CMS->Display_admin();
+            $CMS->Display_admin($page);
+            $CMS->Display_public($page, $mysqli);
         }
-        $CMS->Display_admin();
-        $addingPage = $page;
-        //else
+        else
+        {
+            $CMS->Display_public($page, $mysqli);
+        }
             
-        $CMS->Display_public($page, $mysqli);
 
     ?>
 

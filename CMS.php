@@ -45,21 +45,24 @@
         }
     
         // Admin page
-        public function Display_admin() {
-            echo file_get_contents("adminBar.php");
+        public function Display_admin($page) {
+             include "adminBar.php";
         }
 
         // Sava info to Database : test -> ?write_type=insert&insert_name=textInsert&content=writeTest&order=2
         public function Write($mysqli, $page, $WriteType, $InsertName, $Content, $Order) {
             echo $page." : ".$WriteType." : ".$InsertName." : ".$Content." : ".$Order;
 
-            $query = "UPDATE `content` SET `order`=`order`+1 WHERE `order` > $Order";
-            $mysqli->query($query);
-
             if($WriteType == "insert")
-            $query = "INSERT INTO `content`( `page_name`, `insert_name`, `content`, `order`)
-            VALUES ('".$page."', '".$InsertName."', '".$Content."', '".$Order."')";
-            $mysqli->query($query);
+            {
+                $query = "UPDATE `content` SET `order`=`order`+1 WHERE `order` >= $Order";
+                $mysqli->query($query);
+
+                
+                $query = "INSERT INTO `content`( `page_name`, `insert_name`, `content`, `order`)
+                VALUES ('".$page."', '".$InsertName."', '".$Content."', '".$Order."')";
+                $mysqli->query($query);
+            }
 
         }
     
