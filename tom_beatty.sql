@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 20, 2019 at 02:22 AM
+-- Generation Time: Nov 20, 2019 at 06:19 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `page_name` (`page_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `content`
@@ -71,10 +71,10 @@ CREATE TABLE IF NOT EXISTS `content` (
 
 INSERT INTO `content` (`id`, `page_name`, `insert_name`, `content`, `order`) VALUES
 (1, 'home', 'textInsert', 'Hello World', 1),
-(2, 'home', 'textInsert', 'hope this works', 16),
+(2, 'home', 'textInsert', 'hope this works', 3),
 (3, 'home', 'imageInsert', 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.thetaxidermystore.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2F1%2Fimage%2F9df78eab33525d08d6e5fb8d27136e95%2Fw%2Fh%2Fwhite-mallard-taxidermy-mount-_11496-for-sale-_-the-taxidermy-store_1.jpg&f=1&nofb=1', 2),
 (4, 'about', 'textInsert', 'about us', 1),
-(5, 'home', 'textInsert', 'AAAAAAAAAAAAAAAAA', 17),
+(5, 'home', 'textInsert', 'AAAAAAAAAAAAAAAAA', 4),
 (6, 'about', 'textInsert', 'this is us', 2);
 
 -- --------------------------------------------------------
