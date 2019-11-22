@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style_sheets/dev.css">
+
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
 <?php
 $_POST["username"];
 $_POST["password"];
@@ -17,7 +32,7 @@ while($row = $sqlResult->fetch_assoc()){
 
 if($row != null) {
 
-    echo "session set";
+    echo "<h1>You successfully logged in</h1>";
     extract($row);
 
     session_start();
@@ -26,6 +41,13 @@ if($row != null) {
     $_SESSION["password"] = $filteredPass;
     $_SESSION["isAdmin"] = $is_admin;
 }
+else{
+    echo "<h1>Log in failed. Try again.</h1>";
+    echo "<a href='login.php'>Log In</a>";
+    
 }
 }
+}
+echo "<a href='index.php'>Home</a>";
+
 ?>

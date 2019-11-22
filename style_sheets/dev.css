@@ -1,9 +1,21 @@
 body{
-    margin: auto;
+    background-color: #828A95;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 div
 {
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
     border: 1px solid black;
+    border-radius: 5px;
+
 }
 
 #adminBar{
@@ -12,4 +24,32 @@ div
     width: 70vw;
     margin-left: 15vw;
     height: 40px;
+}
+
+.textInsert{
+    background-color: #A9C0CB;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 400px;
+}
+
+.imgInsert{
+    background-color: #A9C0CB;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    max-width: 500px;
+    height: auto;
+}
+
+.forms{
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
 }
