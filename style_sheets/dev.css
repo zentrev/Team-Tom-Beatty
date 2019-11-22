@@ -33,6 +33,8 @@ img{
     margin-bottom: 5px;
     text-align: center;
     width: 400px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .imgInsert{
