@@ -41,13 +41,13 @@ if($row != null) {
     $_SESSION["password"] = $filteredPass;
     $_SESSION["isAdmin"] = $is_admin;
 }
-else{
+}
+}
+if(session_status() != PHP_SESSION_ACTIVE || $_SESSION == null)
+{
     echo "<h1>Log in failed. Try again.</h1>";
     echo "<a href='login.php'>Log In</a>";
-    
 }
-}
-}
-echo "<a href='index.php'>Home</a>";
+echo "</br><a href='index.php'>Home</a>";
 
 ?>
